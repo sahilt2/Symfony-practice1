@@ -10,7 +10,9 @@ class TemperatureController {
 
     function fahrenheit(request $request) {
         $temp = $request->query->get('temperature');
+        $temp = $request->query->get('temperature');
         $fahrenheit = ($temp * 9 / 5) + 32;
+        $celcius = ($temp-32)/1.8;
         if (!is_numeric($temp)) {
 
             // Return an error if the temperature is invalid
@@ -19,7 +21,8 @@ class TemperatureController {
             
             } else{
                 return new Response (
-                    $temp. " Celsius in Fahrenheit: " .$fahrenheit 
+                    $temp. " Celsius in Fahrenheit: " .$fahrenheit. 
+                    " and " .$temp. " Fahrenheit in Celcius: " .$celcius
                 );
             }
             
